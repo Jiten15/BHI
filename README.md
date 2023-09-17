@@ -1,1 +1,1 @@
-
+streamlit run Home.py
