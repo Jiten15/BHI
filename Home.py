@@ -87,7 +87,7 @@ def Home():
     with st.expander("Company Stats"):
         showData=st.multiselect('Filter: ',df.columns,default=['Sales', 'Total_Income', 'Net_Profit', 'Cash',
        'Operating_Expense_Ratio', 'Net_Profit_Margin', 'Current_Ratio', 'date',
-       'id', 'obs_id', 'salinitySurface', 'Quarter', 'Period'])
+       'id', 'obs_id', 'salinitySurface', 'Quarter', 'Period'], key="multi1")
     st.dataframe(df[showData],use_container_width=True)
     #compute top analytics
     current_total_income = float(df["Total_Income"].tail(1))
