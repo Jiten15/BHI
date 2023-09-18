@@ -551,10 +551,10 @@ def sideBar():
 
 sideBar()
 
-Home()
-feature_1()
-feature_2()
-feature_3()
+# Home()
+# feature_1()
+# feature_2()
+# feature_3()
 
 
 #theme
