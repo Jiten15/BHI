@@ -52,6 +52,8 @@ def generate_dates(start_date, end_date, frequency):
         elif frequency == "yearly":
             current_date = current_date.replace(day=1, month=1)  # Move to the first day of the next year
             current_date += timedelta(days=366)  # Add 366 days to ensure we're in the next year (accounting for leap years)
+        elif frequency == "daily":
+            current_date += timedelta(days=1)
         else:
             raise ValueError("Invalid frequency specified. Use 'monthly', 'quarterly', or 'yearly'.")
 
@@ -387,7 +389,7 @@ def feature_3():
     st.title("Time Period Selector")
 
     # Sidebar for user input
-    time_period = st.sidebar.selectbox("Select a Time Period:", ["monthly", "quarterly", "yearly"])
+    time_period = st.sidebar.selectbox("Select a Time Period:", ["monthly", "quarterly", "yearly","daily"])
 
 
     # Function to group data by selected time period
@@ -408,6 +410,11 @@ def feature_3():
         yearly_df = df[df['date'].isin(yearly_dates)].copy()
         dates_d=yearly_dates
         d3=yearly_df
+    elif time_period == "daily":
+        daily_dates = generate_dates(start_date, end_date, "daily")
+        daily_df = df[df['date'].isin(daily_dates)].copy()
+        dates_d = daily_dates
+        d3 = daily_df      
         # yearly_df.reset_index(drop=True, inplace=True)
 
 
