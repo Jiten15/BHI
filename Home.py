@@ -145,7 +145,7 @@ def feature_1():
 
 
     # Streamlit app
-    st.title("Date Range Selector ...date should be after 2020...")
+    st.title("Date Range Selector ...date range 2000 to 2022...")
 
     # Sidebar for user input
     start_date = st.sidebar.date_input("Select a Start Date")
@@ -165,7 +165,7 @@ def feature_1():
     st.title("Time Period Selector")
 
     # Sidebar for user input
-    time_period = st.sidebar.selectbox("Select a Time Period:", ["monthly", "quarterly", "yearly"])
+    time_period = st.sidebar.selectbox("Select a Time Period:", ["monthly", "quarterly", "yearly","daily"])
 
 
     # Function to group data by selected time period
@@ -183,6 +183,11 @@ def feature_1():
         yearly_dates = generate_dates(start_date, end_date, "yearly")
         yearly_df = df[df['date'].isin(yearly_dates)].copy()
         dates_d=yearly_dates
+    elif time_period == "daily":
+        daily_dates = generate_dates(start_date, end_date, "daily")
+        daily_df = df[df['date'].isin(daily_dates)].copy()
+        dates_d = daily_dates
+      
         # yearly_df.reset_index(drop=True, inplace=True)
 
     # Display data based on the selected time period
@@ -263,7 +268,7 @@ def feature_2():
     st.title("Duration 1 : Time Period Selector")
 
     # Sidebar for user input
-    time_period1 = st.sidebar.selectbox("Select a Time Period:", ["monthly", "quarterly", "yearly"], key="time_period1")
+    time_period1 = st.sidebar.selectbox("Select a Time Period:", ["monthly", "quarterly", "yearly","daily"], key="time_period1")
 
 
     # Function to group data by selected time period
@@ -284,6 +289,11 @@ def feature_2():
         yearly_df = df[df['date'].isin(yearly_dates)].copy()
         dates_d1=yearly_dates
         d1=yearly_df
+    elif time_period == "daily":
+        daily_dates = generate_dates(start_date, end_date, "daily")
+        daily_df = df[df['date'].isin(daily_dates)].copy()
+        dates_d1 = daily_dates
+        d1=daily_df
         # yearly_df.reset_index(drop=True, inplace=True)
 
 
@@ -310,7 +320,7 @@ def feature_2():
     st.title("Duration 2 : Time Period Selector")
 
     # Sidebar for user input
-    time_period2 = st.sidebar.selectbox("Select a Time Period:", ["monthly", "quarterly", "yearly"], key="time_period2")
+    time_period2 = st.sidebar.selectbox("Select a Time Period:", ["monthly", "quarterly", "yearly","daily"], key="time_period2")
 
 
     # Function to group data by selected time period
@@ -330,7 +340,12 @@ def feature_2():
         yearly_dates = generate_dates(start_date2, end_date2, "yearly")
         yearly_df = df[df['date'].isin(yearly_dates)].copy()
         dates_d2=yearly_dates 
-        d2=yearly_df   
+        d2=yearly_df 
+    elif time_period == "daily":
+        daily_dates = generate_dates(start_date, end_date, "daily")
+        daily_df = df[df['date'].isin(daily_dates)].copy()
+        dates_d2 = daily_dates
+        d2=daily_df    
 
 
 
