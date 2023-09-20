@@ -417,12 +417,12 @@ def feature_3():
 
 
 
-    # Streamlit app
-    st.title("Step size : Positive Integer Input (i.e. 30)")
+    # # Streamlit app
+    # st.title("Step size : Positive Integer Input (i.e. 30)")
 
-    # User input for a positive integer
-    positive_integer = st.number_input("Enter a Positive Integer", min_value=1, value=1, step=1)
-    s=positive_integer
+    # # User input for a positive integer
+    # positive_integer = st.number_input("Enter a Positive Integer", min_value=1, value=1, step=1)
+    # s=positive_integer
 
 
 
@@ -431,21 +431,21 @@ def feature_3():
     # Create a button
     if st.button("Plot Forecaste"):
 
-        def compare_forecast(x1,y1,s):
+        def forecast(x1,y1):
 
-            forecast_dates = pd.date_range(start=x1[-1], periods=s + 1, freq='M')[1:]
+            # forecast_dates = pd.date_range(start=x1[-1], periods=s + 1, freq='M')[1:]
 
             model = ExponentialSmoothing(endog=df[selected_column]).fit()
-            predictions = model.forecast(steps=s)
+            predictions = model.forecast(steps=len(df[selected_column]))
             # print(predictions)
-            trace1 = go.Scatter(x=x1, y=y1, mode='lines+markers', name='Actual')
-            trace2 = go.Scatter(x=forecast_dates, y=predictions, mode='lines', name='Forecasted',line=dict(color='red'))
-            layout = go.Layout(title="Actual vs Forecast")
-            fig = go.Figure(data=[trace1, trace2], layout=layout)
+            # trace1 = go.Scatter(x=x1, y=y1, mode='lines+markers', name='Actual')
+            trace2 = go.Scatter(x=x1, y=predictions, mode='lines', name='Forecasted',line=dict(color='red'))
+            layout = go.Layout(title="Forecast")
+            fig = go.Figure(data=[trace2], layout=layout)
             st.plotly_chart(fig)
 
 
-        compare_forecast(dates_d,d3[selected_column],s) 
+        forecast(dates_d,d3[selected_column]) 
 
 
 
