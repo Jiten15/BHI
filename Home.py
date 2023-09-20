@@ -542,7 +542,7 @@ def sideBar():
     selected=option_menu(
         menu_title="Main Menu",
         options=["Home","Plot a Feature","Compare Two Durations of a Feature","Forecast a Feature"],
-        icons=["house","eye"],
+        icons=["house"],
         menu_icon="cast",
         default_index=0
     )
