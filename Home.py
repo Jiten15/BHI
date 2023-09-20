@@ -241,7 +241,7 @@ def feature_2():
 
 
     ###### duration 1 ##############
-    # Streamlit app
+
     st.title("Duration 1 Selector ...date should be after 2020...")
 
     # Sidebar for user input
@@ -288,7 +288,7 @@ def feature_2():
 
 
     ###### duration 2 ##############
-    # Streamlit app
+    
     st.title("Duration 2 Selector ...date should be after 2020...")
 
     # Sidebar for user input
@@ -305,7 +305,7 @@ def feature_2():
         end_date2 = datetime.combine(end_date2, datetime.max.time())
         
    
-    # Streamlit app
+    
     st.title("Duration 2 : Time Period Selector")
 
     # Sidebar for user input
@@ -348,8 +348,6 @@ def feature_2():
             st.plotly_chart(fig)
 
 
-        # Call the function
-
         plot(dates_d1,d1[selected_column]) 
         plot(dates_d2,d2[selected_column])   
 
@@ -358,8 +356,6 @@ def feature_2():
 
 def feature_3():
 
-    
-    # Streamlit app
     st.title("Select a Column from DataFrame")
 
     # Sidebar with options
@@ -371,8 +367,8 @@ def feature_3():
 
 
 
-    # Streamlit app
-    st.title("Date Range Selector ...date should be after 2020...")
+    
+    st.title("select a Date Range ")
 
     # Sidebar for user input
     start_date = st.sidebar.date_input("Select a Start Date")
