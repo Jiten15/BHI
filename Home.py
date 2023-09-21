@@ -452,7 +452,7 @@ def feature_3():
 
             # forecast_dates = pd.date_range(start=x1[-1], periods=s + 1, freq='M')[1:]
 
-            model = ExponentialSmoothing(endog=df[selected_column],trend='mul').fit()
+            model = ExponentialSmoothing(endog=df[selected_column]).fit()
             predictions = model.forecast(steps=len(df[selected_column]))
             # print(predictions)
             # trace1 = go.Scatter(x=x1, y=y1, mode='lines+markers', name='Actual')
